@@ -1,0 +1,11 @@
+build/
+bin/
+bin-release/
+
+# downloaded or built dependicies
+libs/fmt-*
+libs/grpc-*
+libs/openssl-*
+libs/protobuf-*
+tools/nsam-*
+tools/perl-* 

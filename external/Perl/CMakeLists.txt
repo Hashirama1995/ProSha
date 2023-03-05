@@ -1,0 +1,27 @@
+#   Input variables:
+#       PERL_VERSION_MAJOR
+#       PERL_VERSION_MINOR
+#       PERL_VERSION_BUILD
+#       PERL_VERSION_REVISION
+#       PERL_INSTALL_DIR
+
+cmake_minimum_required (VERSION 3.0)
+
+project(PerlDownload)
+
+include(ExternalProject)
+
+# PERL_URL http://strawberryperl.com/download/${PERL_VERSION_MAJOR}.${PERL_VERSION_MINOR}.${PERL_VERSION_BUILD}.${PERL_VERSION_REVISION}/strawberry-perl-${PERL_VERSION_MAJOR}.${PERL_VERSION_MINOR}.${PERL_VERSION_BUILD}.${PERL_VERSION_REVISION}-64bit-portable.zip
+set(PERL_URL "http://strawberryperl.com/download/${PERL_VERSION_MAJOR}.${PERL_VERSION_MINOR}.${PERL_VERSION_BUILD}.${PERL_VERSION_REVISION}/strawberry-perl-${PERL_VERSION_MAJOR}.${PERL_VERSION_MINOR}.${PERL_VERSION_BUILD}.${PERL_VERSION_REVISION}-64bit-portable.zip")
+
+
+set(PERL_INSTALL_COMMAND ${CMAKE_COMMAND} -E copy_directory . ${PERL_INSTALL_DIR})
+
+ExternalProject_Add(
+    Perl
+    URL ${PERL_URL}
+    CONFIGURE_COMMAND ""
+    BUILD_COMMAND ""
+    BUILD_IN_SOURCE 1
+    INSTALL_COMMAND ${PERL_INSTALL_COMMAND}
+)
